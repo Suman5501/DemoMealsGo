@@ -11,11 +11,11 @@ const defaultTextstyles = (theme) => `
 `;
 
 const body = (theme) => `
-  font-size: ${theme.fontsizes.body};
+  font-size: ${theme.fontSizes.body};
 `;
 
 const hint = (theme) => `
-  font-size: ${theme.fontsizes.body};
+  font-size: ${theme.fontSizes.body};
 `;
 
 const error = (theme) => `
@@ -23,14 +23,14 @@ const error = (theme) => `
 `;
 
 const caption = (theme) => `
-  font-size: ${theme.fontsizes.caption};
+  font-size: ${theme.fontSizes.caption};
   font-family: ${theme.fontWeights.bold};
 `;
 
 const label = (theme) => `
   font-family: ${theme.fonts.heading};
   font-weight: ${theme.fontWeights.medium};
-  font-size: ${theme.fontsizes.body};
+  font-size: ${theme.fontSizes.body};
 `;
 const variants = {
   body,
