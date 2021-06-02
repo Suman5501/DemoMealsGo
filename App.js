@@ -1,7 +1,8 @@
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { ThemeProvider } from "styled-components/native";
+import * as firebase from "firebase";
 
 import {
   useFonts as useOswald,
@@ -10,9 +11,24 @@ import {
 import { useFonts as useLato, Lato_400Regular } from "@expo-google-fonts/lato";
 
 import { theme } from "./src/infastructure/theme";
+import { Navigation } from "./src/infastructure/navigation";
+
 import { RestaurantsContextProvider } from "./src/services/restaurants/restaurant.context";
 import { LocationContextProvider } from "./src/services/location/location.context";
-import { Navigation } from "./src/infastructure/navigation";
+import { AuthenticationContextProvider } from "./src/services/authentication/auth.context";
+
+// Initialize Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyDUzBhlhsN-_306Jrt-lTeir8FUojAz2L4",
+  authDomain: "mealsgo-b05fd.firebaseapp.com",
+  projectId: "mealsgo-b05fd",
+  storageBucket: "mealsgo-b05fd.appspot.com",
+  messagingSenderId: "932798539482",
+  appId: "1:932798539482:web:cc189792ae01f34eb7a7e3",
+};
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
 
 export default function App() {
   const [oswaldLoaded] = useOswald({
@@ -30,11 +46,13 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <LocationContextProvider>
-          <RestaurantsContextProvider>
-            <Navigation />
-          </RestaurantsContextProvider>
-        </LocationContextProvider>
+        <AuthenticationContextProvider>
+          <LocationContextProvider>
+            <RestaurantsContextProvider>
+              <Navigation />
+            </RestaurantsContextProvider>
+          </LocationContextProvider>
+        </AuthenticationContextProvider>
       </ThemeProvider>
       <ExpoStatusBar style="auto" />
     </>

@@ -26,6 +26,12 @@ const caption = (theme) => `
   font-size: ${theme.fontSizes.caption};
   font-weight: ${theme.fontWeights.bold};
 `;
+const heading = (theme) => `
+  font-size: ${theme.fontSizes.h5};
+  font-weight: ${theme.fontWeights.bold};
+  font-family: ${theme.fonts.heading};
+  color: ${theme.colors.ui.quaternary};
+`;
 
 const label = (theme) => `
   font-family: ${theme.fonts.heading};
@@ -38,6 +44,7 @@ const variants = {
   error,
   label,
   caption,
+  heading,
 };
 
 export const Text = styled.Text`
