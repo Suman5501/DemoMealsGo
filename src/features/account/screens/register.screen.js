@@ -10,7 +10,6 @@ import {
   ErrorContainer,
   Title,
 } from "../components/account.styles";
-import { Button, TextInput } from "react-native-paper";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
 import { Navigation } from "../../../infastructure/navigation";
